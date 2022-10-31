@@ -6,18 +6,6 @@ const axios = require('axios');
 
 
 module.exports = function(app) {
-  var todoList = require('../controller/appController.js')
-  // DB Routes
-  app.route('/tasks')
-    .get(todoList.list_all_tasks)
-    .post(todoList.create_a_task);
-   
-   app.route('/tasks/:taskId')
-    .get(todoList.read_a_task)
-    .put(todoList.update_a_task)
-    .delete(todoList.delete_a_task);
-
-// other routes
 app.get("/", (req, res) => {
     res.send("Hi.  This is Brad's app that he's going to use to become an APM pro.");
     logger.log('info', 'The logger is working!');
@@ -28,17 +16,12 @@ app.get("/", (req, res) => {
     const span = tracer.scope().active()
     if (span !== null) {
     //   span.setTag('friends', req.params.friend);
-      span.setTag('uniqueTRACEID', req.headers.x-ddtrace-parent_trace_id)
+      span.setTag('friend', req.params.friend)
 
     }
     console.log(span);
-    res.send("Brad is glad to call you a friend!");
+    res.send("Brad is glad to call you a friend, " + req.params.friend.toUpperCase() +"!");
   });
-  
-  
-  app.route('/tasks')
-      .get(todoList.list_all_tasks)
-      .post(todoList.create_a_task);
   
   app.get("/quote", (req, res) => {
     let quote = '';
@@ -51,19 +34,6 @@ app.get("/", (req, res) => {
         console.log(author);
         let sentence = quote + '-' + author;
         res.send(sentence);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  });
-
-  app.get("/port3001", (req, res) => {
-    let quote = '';
-    axios.get('http://localhost:3001/tasks')
-      .then(response => {
-        let brad = JSON.stringify(response.data);
-        // author = JSON.stringify(response.data[0].a);
-        res.send(brad);
       })
       .catch(error => {
         console.log(error);

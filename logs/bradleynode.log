@@ -4,3 +4,5 @@
 {"dd":{"env":"prod","service":"tracethis2!","span_id":"7233308563415961835","trace_id":"7557609164671451358","version":"2.0"},"level":"info","message":"The logger is working!"}
 {"dd":{"env":"prod","service":"tracethis2!","span_id":"1616588815172355004","trace_id":"6563607274272397783","version":"2.0"},"level":"info","message":"The logger is working!"}
 {"dd":{"env":"prod","service":"tracethis2!","span_id":"6975689526274865871","trace_id":"3893590796148755735","version":"2.0"},"level":"info","message":"The logger is working!"}
+{"dd":{"env":"prod","service":"NodeJS_noDB","span_id":"7354700005141911210","trace_id":"7626410116775518096","version":"1.0"},"level":"info","message":"The logger is working!"}
+{"dd":{"env":"prod","service":"NodeJS_noDB","span_id":"9130599957255975277","trace_id":"6090858199024819101","version":"1.0"},"level":"info","message":"The logger is working!"}
