@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fire": "DD_ENV='prod' DD_SERVICE='NodeJS_noDB' DD_VERSION=1.0 DD_LOGS_INJECTION=true node server.js"
+    "fire_noDD": "node server.js",
+    "fireDD": "DD_ENV='prod' DD_SERVICE='NodeJS_noDB' DD_VERSION=1.0 DD_LOGS_INJECTION=true node server.js"
   },
   "keywords": [],
   "author": "",

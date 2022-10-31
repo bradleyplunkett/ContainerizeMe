@@ -1,5 +1,6 @@
 'use strict';
-var tracer = require('../../server.js');
+// var tracer = require('../../server.js');
+//commented above out because DD was interfering with running container
 var logger = require('../../logger.js');
 const axios = require('axios');
 
@@ -13,13 +14,14 @@ app.get("/", (req, res) => {
   
   app.get('/friends/:friend', (req, res) => {
     // Get the active span
-    const span = tracer.scope().active()
-    if (span !== null) {
-    //   span.setTag('friends', req.params.friend);
-      span.setTag('friend', req.params.friend)
+    //commenting below out since it was messing with running container
+    // const span = tracer.scope().active()
+    // if (span !== null) {
+    // //   span.setTag('friends', req.params.friend);
+    //   span.setTag('friend', req.params.friend)
 
-    }
-    console.log(span);
+    // }
+    // console.log(span);
     res.send("Brad is glad to call you a friend, " + req.params.friend.toUpperCase() +"!");
   });
   
